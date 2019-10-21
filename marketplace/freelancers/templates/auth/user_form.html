@@ -1,0 +1,66 @@
+{% extends "auth/user_base.html" %}
+{% load i18n %}
+
+{% block content %}
+<!--Main layout-->
+<main>
+    <div class="container">
+    
+              <!-- Form -->
+        <form method="post" action=".">
+          {% csrf_token %}
+          <!-- Heading -->
+          <h3 class="dark-grey-text text-center">
+            <strong>Update user form:</strong>
+          </h3>
+          <hr>
+
+          <div class="md-form">
+            <i class="fas fa-i-cursor prefix grey-text"></i>
+            {{ form.first_name }}
+            <label for="{{ form.first_name.id_for_label}}">{{ form.first_name.label }}</label>
+            {% if form.first_name.errors %}
+                <div class="errorlist form-text ">
+                    {% for error in form.first_name.errors  %}
+                    <div>{{ error }}</div>
+                    {% endfor %}
+                </div>
+                
+            {% endif %}
+            <small class="form-text text-muted mb-4">
+                {{ form.first_name.help_text }}
+            </small>
+          </div>
+        <div class="md-form">
+            <i class="fas fa-i-cursor prefix grey-text"></i>
+            {{ form.last_name }}
+            <label for="{{ form.last_name.id_for_label}}">{{ form.last_name.label }}</label>
+            {% if form.last_name.errors %}
+                <div class="errorlist form-text ">
+                    {% for error in form.last_name.errors  %}
+                    <div>{{ error }}</div>
+                    {% endfor %}
+                </div>
+                
+            {% endif %}
+          </div>
+
+          <div class="text-center">
+            <button class="btn btn-indigo">{% trans 'Submit' %}</button> 
+
+<div class="md-form">
+    <p>
+    <a href="{% url 'auth_password_change' %}">{% trans 'Password Change' %}</a>
+    </p>
+</div>
+          </div>
+
+        </form>
+        <!-- Form -->
+
+
+    </div>
+</main>
+<!--Main layout-->    
+
+{% endblock content %}

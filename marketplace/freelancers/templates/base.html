@@ -1,0 +1,133 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+{% include "header.html" %}
+<body>
+
+  {% include "navbar.html" %}
+  
+{% block content %}
+  {% if request.user.is_authenticated %}
+ 
+  <!-- Full Page Intro -->
+  <div class="view full-page-intro" style="background-image: url('{% static "img/pants-1255851_1280.jpg" %}'); background-repeat: no-repeat; background-size: cover;">
+
+    <!-- Mask & flexbox options-->
+    <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+      <!-- Content -->
+      <div class="container">
+
+        <!--Grid row-->
+        <div class="row wow fadeIn">
+
+          <!--Grid column-->
+          <div class="col-md-6 mb-4 white-text text-center text-md-left">
+
+            <h1 class="display-4 font-weight-bold">Find your ideal job</h1>
+
+            <hr class="hr-light">
+
+            <p>
+              <strong>Freelance job, opportunity to use your skills, money reward and only chosen by you own.</strong>
+            </p>
+
+            <p class="mb-4 d-none d-md-block">
+              <strong>.</strong>
+            </p>
+
+            <a href={% url "freelance:joblist" %} class="btn btn-indigo btn-lg">Search
+              <i class="fas fa-list ml-2"></i>
+            </a>
+
+          </div>
+          <!--Grid column-->
+
+
+        </div>
+        <!--Grid row-->
+
+      </div>
+      <!-- Content -->
+
+    </div>
+    <!-- Mask & flexbox options-->
+
+  </div>
+  <!-- Full Page Intro -->
+  {% else %}
+    
+  
+  <!-- Full Page Intro -->
+  <div class="view full-page-intro" style="background-image: url('{% static "img/office-620817_1920.jpg" %}'); background-repeat: no-repeat; background-size: cover;">
+
+    <!-- Mask & flexbox options-->
+    <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+      <!-- Content -->
+      <div class="container">
+
+        <!--Grid row-->
+        <div class="row wow fadeIn">
+
+          <!--Grid column-->
+          <div class="col-md-6 mb-4 white-text text-center text-md-left">
+
+            <h1 class="display-4 font-weight-bold">Find your ideal job</h1>
+
+            <hr class="hr-light">
+
+            <p>
+              <strong>Freelance job, opportunity to use your skills, money reward and only chosen by you own.</strong>
+            </p>
+
+            <p class="mb-4 d-none d-md-block">
+              <strong>.</strong>
+            </p>
+
+            <a href={% url "registration_register" %} class="btn btn-indigo btn-lg">Create your accout
+              <i class="fas fa-graduation-cap ml-2"></i>
+            </a>
+
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-md-6 col-xl-5 mb-4">
+
+            <!--Card-->
+            <div class="card">
+
+              <!--Card content-->
+              <div class="card-body">
+                {% include "registration/login_form.html" %}
+
+              </div>
+
+            </div>
+            <!--/.Card-->
+
+          </div>
+          <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+      </div>
+      <!-- Content -->
+
+    </div>
+    <!-- Mask & flexbox options-->
+
+  </div>
+  <!-- Full Page Intro -->
+  {% endif %}
+{% endblock content %}
+
+{% include "footer.html" %}
+{% block extrajs %}
+  
+{% endblock extrajs %}
+</body>
+
+</html>

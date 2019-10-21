@@ -1,0 +1,28 @@
+
+<!-- Form -->
+<form name="" action={% url "auth_login" %} method="post">
+  {% csrf_token %}
+  <!-- Heading -->
+  <h3 class="dark-grey-text text-center">
+    <strong>Login:</strong>
+  </h3>
+  <hr>
+
+  <div class="md-form">
+    <i class="fas fa-user prefix grey-text"></i>
+    <input type="text" id="form3" name="username" class="form-control">
+    <label for="form3">Username</label>
+  </div>
+  <div class="md-form">
+    <i class="fas fa-envelope prefix grey-text"></i>
+    <input type="password" id="form2" name="password" class="form-control">
+    <label for="form2">Password</label>
+  </div>
+
+
+  <div class="text-center">
+    <button class="btn btn-indigo">Login</button>
+  </div>
+
+</form>
+<!-- Form -->

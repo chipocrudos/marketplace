@@ -1,0 +1,33 @@
+
+<!-- Card -->
+<div class="card">
+
+  <!-- Button -->
+
+  <!-- Card content -->
+  <div class="card-body">
+
+    <!-- Title -->
+    <h4 class="card-title">
+      <a href={% url "freelance:jobdetail" object.code %} class="text-dark">
+          {{ object.title }}
+      </a>
+  </h4>
+    <h6 class="card-title">{{ object.user.get_full_name }}</h6>
+    <hr>
+    <!-- Text -->
+    <p class="card-text">{{ object.description|linebreaksbr }}</p>
+
+  </div>
+
+  <!-- Card footer -->
+  <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+    <ul class="list-unstyled list-inline font-small">
+      <li class="list-inline-item pr-2 white-text">Opportunity expire at <i class="far fa-clock pr-1"></i> {{ object.expired }}</li>
+
+      <li class="list-inline-item white-text"><i class="fab dollar-sign pr-1"> </i>$ {{ object.budget }}</li>
+    </ul>
+  </div>
+
+</div>
+<!-- Card -->

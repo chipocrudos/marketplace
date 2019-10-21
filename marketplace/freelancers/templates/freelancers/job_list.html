@@ -1,0 +1,44 @@
+{% extends "freelancers/job_base.html" %}
+
+
+{% block content %}
+      <!--Main layout-->
+<main>
+    <div class="container">
+
+      {% if messages %}
+      <div class="row justify-content-center mt-4">
+      <div class="col-md-12 mt-2">
+        <ul class="messages">
+          {% for message in messages %}
+          <div class="alert alert-danger {{ message.tags }}" role="alert">
+            {{ message }}
+          </div>
+          {% endfor %}
+        </ul>
+      </div>
+      </div>
+      {% endif %}
+      
+
+    <div class="row mt-4">
+    {% for object in object_list %}
+        <div class="col-md-6 mt-2">
+        {% include "freelancers/job_card.html" %}
+        </div>
+    {% empty %}
+        <div class="alert alert-warning text-center" role="alert">
+          <p>Humm is nothing here!</p>
+          <p>Try <a href={% url "freelance:joblist" %}> this</a></p>
+        </div>
+
+    {% endfor %}
+
+    </div>
+
+  {% include "pages.html" %}
+
+    </div>
+</main>
+  <!--Main layout-->    
+{% endblock content %}
